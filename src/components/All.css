@@ -1,0 +1,47 @@
+:root {
+  --dark__Mode-dark-blue: hsl(209, 23%, 22%);
+  --dark__Mode-very-dark-blue: hsl(200, 15%, 8%);
+  --light__Mode-very-dark-blue: hsl(207, 26%, 17%);
+  --light__Mode-dark-gray: hsl(0, 0%, 52%);
+  --light__Mode-light-gray: hsl(0, 0%, 96%);
+  --both__Mode-white-color: hsl(0, 0%, 100%);
+
+  --basic-space: 35px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.countries-list {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  flex-flow: wrap;
+  justify-content: space-evenly;
+  margin: auto;
+}
+
+.countries-list .list {
+  margin: 40px 20px;
+}
+
+/* navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--basic-space);
+  border-bottom: 2px solid var(--light__Mode-light-gray);
+  -webkit-box-shadow: 1px 2px 15px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 2px 15px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar button {
+  border: none;
+  background-color: transparent;
+  font-size: 15px;
+  margin-right: 10px;
+}
+.navbar button:hover {
+  transform: scale(1.1);
+}

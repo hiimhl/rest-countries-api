@@ -1,12 +1,14 @@
 import Card from "./UI/Card";
 import { useEffect, useState } from "react";
+import "./All.css";
 
 function ShowList(props) {
   const [countries, setCountries] = useState([]);
   const getCountries = async () => {
-    const json = await (
-      await fetch("https://restcountries.com/v3.1/all")
-    ).json();
+    const json = await //
+    (await fetch("https://restcountries.com/v3.1/all"))
+      .json()
+      .catch(console.log("error"));
     // setCountries(json.data.all)
     setCountries(json);
   };
@@ -16,11 +18,20 @@ function ShowList(props) {
   console.log(countries);
 
   return (
-    <div>
+    <ul className="countries-list">
       {countries.map((item) => {
-        <Card key={item.name} flags={item.flags.png} name={item.name} />;
+        return (
+          <Card
+            className="list"
+            key={item.name.common}
+            name={item.name.common}
+            flags={item.flags.png}
+            region={item.region}
+            capital={item.capital}
+          />
+        );
       })}
-    </div>
+    </ul>
   );
 }
 
