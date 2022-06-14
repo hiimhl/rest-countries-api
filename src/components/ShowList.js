@@ -25,6 +25,7 @@ function ShowList(props) {
             className="list"
             key={item.name.common}
             name={item.name.common}
+            population={item.population}
             flags={item.flags.png}
             region={item.region}
             capital={item.capital}
