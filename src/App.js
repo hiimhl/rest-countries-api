@@ -1,14 +1,20 @@
-import React from "react";
-import ShowList from "./components/ShowList";
-import Header from "./components/Header";
-import "./index.css";
+import React, { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Detail from "./Detail";
+import Home from "./Home";
 
-function App() {
+function App(props) {
+  const [countries, setCountries] = useState([]);
+  const getDataToApp = (data) => {
+    setCountries(data);
+  };
   return (
-    <div className="all">
-      <Header />
-      <ShowList />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path={"/"} element={<Home getData={getDataToApp} />} />
+        <Route path={"/detail/:id"} element={<Detail sendData={countries} />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

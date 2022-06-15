@@ -4,18 +4,22 @@ import "./All.css";
 
 function ShowList(props) {
   const [countries, setCountries] = useState([]);
+  const [bool, setBool] = useState(false);
   const getCountries = async () => {
     const json = await //
     (await fetch("https://restcountries.com/v3.1/all"))
       .json()
       .catch(console.log("error"));
-    // setCountries(json.data.all)
     setCountries(json);
   };
+
   useEffect(() => {
     getCountries();
+    setBool(true);
   }, []);
-  console.log(countries);
+
+  //데이터 보내기
+  bool && props.sendData(countries);
 
   return (
     <ul className="countries-list">
