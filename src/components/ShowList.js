@@ -1,10 +1,18 @@
 import Card from "./UI/Card";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./All.css";
 
 function ShowList(props) {
   const [countries, setCountries] = useState([]);
   const [bool, setBool] = useState(false);
+  const navigate = useNavigate();
+
+  if (countries.length !== 0) {
+    console.log("form showlist");
+    props.sendData(countries);
+  }
+
   const getCountries = async () => {
     const json = await //
     (await fetch("https://restcountries.com/v3.1/all"))
@@ -19,13 +27,15 @@ function ShowList(props) {
   }, []);
 
   //데이터 보내기
-  bool && props.sendData(countries);
 
   return (
     <ul className="countries-list">
       {countries.map((item) => {
         return (
           <Card
+            onClickHandler={() => {
+              navigate(`/detail/${item.name.common}`);
+            }}
             className="list"
             key={item.name.common}
             name={item.name.common}

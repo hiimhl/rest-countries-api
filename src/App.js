@@ -6,7 +6,10 @@ import Home from "./Home";
 function App(props) {
   const [countries, setCountries] = useState([]);
   const getDataToApp = (data) => {
-    setCountries(data);
+    if (data.length !== 0) {
+      setCountries(data);
+      console.log("in App");
+    }
   };
   return (
     <BrowserRouter>
