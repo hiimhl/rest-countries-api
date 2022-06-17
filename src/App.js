@@ -8,7 +8,6 @@ function App(props) {
   const getDataToApp = (data) => {
     if (data.length !== 0) {
       setCountries(data);
-      console.log("in App");
     }
   };
   return (
