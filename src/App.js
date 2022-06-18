@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Detail from "./Detail";
-import Home from "./Home";
+import Detail from "./Routes/Detail";
+import Home from "./Routes/Home";
 
 function App(props) {
   const [countries, setCountries] = useState([]);

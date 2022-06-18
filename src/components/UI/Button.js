@@ -2,7 +2,10 @@ import "./Button.css";
 
 function Button(props) {
   return (
-    <button className="button" onChange={props.onClickHandler}>
+    <button
+      className={`button ${props.className}`}
+      onChange={props.onClickHandler}
+    >
       {props.contents}
     </button>
   );

@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Header from "./components/Header";
-import { useNavigate, useParams } from "react-router-dom";
-import Button from "./components/UI/Button";
-import "./index.css";
-import { Link } from "react-router-dom";
-import Country from "./components/Country";
+import { useParams } from "react-router-dom";
+
+import Header from "../components/Header";
+import Country from "../components/Country";
+import "../components/All.css";
 
 function Detail(props) {
   const [data, setData] = useState([]);
   const { id } = useParams();
-  const navigate = useNavigate();
 
   //데이터 받아오기
   const getCountries = async () => {
@@ -19,17 +17,12 @@ function Detail(props) {
     setData(json);
   };
 
-  console.log(data);
   useEffect(() => {
     getCountries();
   }, []);
   return (
-    <div className="all">
+    <div className="allContainer">
       <Header />
-
-      <Link to="/">
-        <Button contents={"← Back"} />
-      </Link>
       <Country data={data} />
     </div>
   );

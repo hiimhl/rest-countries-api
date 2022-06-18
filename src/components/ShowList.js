@@ -1,4 +1,5 @@
 import Card from "./UI/Card";
+import Filter from "./Filter";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./All.css";
@@ -28,7 +29,8 @@ function ShowList(props) {
   //데이터 보내기
 
   return (
-    <React.Fragment>
+    <div className="cardList-container">
+      <Filter />
       {bool ? (
         <ul className="countries-list">
           {countries.map((item) => {
@@ -51,7 +53,7 @@ function ShowList(props) {
       ) : (
         <h1>Loading...</h1>
       )}
-    </React.Fragment>
+    </div>
   );
 }
 
