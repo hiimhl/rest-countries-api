@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Detail from "./Routes/Detail";
 import Home from "./Routes/Home";
@@ -6,10 +6,11 @@ import Home from "./Routes/Home";
 function App(props) {
   const [countries, setCountries] = useState([]);
   const getDataToApp = (data) => {
-    if (data.length !== 0) {
-      setCountries(data);
-    }
+    data !== undefined && setCountries(data);
   };
+  useEffect(() => {
+    getDataToApp();
+  });
   return (
     <BrowserRouter>
       <Routes>

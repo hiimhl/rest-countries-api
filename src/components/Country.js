@@ -6,12 +6,11 @@ import Button from "./UI/Button";
 function Country({ data }) {
   const [bool, setBool] = useState(false);
 
+  console.log(data);
   useEffect(() => {
-    if (data.length !== 0) {
-      setBool(true);
-      console.log(data[0].borders);
-    }
+    data !== undefined && setBool(true);
   }, []);
+  console.log(bool);
 
   return (
     <React.Fragment>
